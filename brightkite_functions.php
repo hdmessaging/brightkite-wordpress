@@ -21,7 +21,7 @@ require_once('emoji/emoji.php');
 		}
 		return $data;
 	}
-	
+
 	function BK_emoji_decode($text) {
 		return emoji_unified_to_html(emoji_softbank_to_unified($text));
 	}
@@ -43,7 +43,7 @@ require_once('emoji/emoji.php');
 		}
 		return implode(' ', $words);
 	}
-	
+
 	function BK_ensureHTTP($url) {
 		if (preg_match('/^(https?:\/\/)/', $string) < 0) { $url = 'http://'.$url; }
 		return $url;
@@ -53,3 +53,11 @@ require_once('emoji/emoji.php');
 		if (preg_match('/^(https?:\/\/)/', $string) > 0) { $string = preg_replace('/^(https?:\/\/)/', '', $string); }
 		return strlen($string) > 20 ? substr($string, 0, 8).'&hellip;'.substr($string, -8) : $string;
 	}
+
+	function BK_create_place_url($place_id) {
+		return BK_HOST.'/places/'.$place_id;
+	}
+	function BK_create_object_url($object_id) {
+		return BK_HOST.'/objects/'.$object_id;
+	}
+

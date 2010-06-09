@@ -1,0 +1,16 @@
+/* from http://ajaxian.com/archives/cross-browser-inline-block */
+	ul.brightkite_person_displays { margin-left: 15px; }
+		ul.brightkite_person_displays li {
+			width: 24%;
+	        min-height: 20px;
+	        display: -moz-inline-stack;
+	        display: inline-block;
+	        vertical-align: middle;
+	        zoom: 1;
+	        *display: inline;
+	        _height: 20px;
+		}
+	h4.brightkite_person_displays {
+		margin-left: 10px;
+		margin-bottom: 10px;
+	}
