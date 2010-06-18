@@ -1,42 +1,71 @@
-	div.brightkite-person-data {
+	div.brightkite-person-data,
+	div.brightkite-place-data {
 		text-align: center;
 		padding: 10px 0;
 	}
-		div.brightkite-person-data a:hover {
+		div.brightkite-place-data span.brightkite-place-name {
+			font-size: 120%;
+			font-weight: bold;
+		}
+		div.brightkite-person-data a:hover,
+		div.brightkite-place-data a:hover {
 			text-decoration: none;
 		}
-			div.brightkite-person-data a:hover span {
+			div.brightkite-person-data a:hover span,
+			div.brightkite-place-data a:hover span {
 				text-decoration: underline;
 			}
+			div.brightkite-place-data a span {
+				display: block;
+			}
+				div.brightkite-place-data a span span {
+					display: inline;
+				}
+					div.brightkite-place-data a span span.emoji {
+						display: inline-block;
+					}
 	span.emoji {
 		zoom: 0.6;
 		position: relative;
 		top: 2px;
 	}
 
-		#sidebar div.brightkite-person-data ul li:before {
+		#sidebar div.brightkite-person-data ul li:before,
+		#sidebar div.brightkite-place-data ul li:before {
 			content: '';
 		}
-		#sidebar div.brightkite-person-data ul li {
+		#sidebar div.brightkite-person-data ul li,
+		#sidebar div.brightkite-place-data ul li {
 			border-top: 1px solid #CCC;
 			text-align: left;
 		}
-			#sidebar div.brightkite-person-data div.brightkite-object-image {
+			#sidebar div.brightkite-person-data div.brightkite-object-image,
+			#sidebar div.brightkite-place-data div.brightkite-object-image {
 				float: right;
 				padding: 6px 6px 6px 2px;
 			}
-			#sidebar div.brightkite-person-data ul li div.brightkite-location {
+			#sidebar div.brightkite-person-data ul li div.brightkite-location,
+			#sidebar div.brightkite-place-data ul li div.brightkite-location {
 				text-align: center;
 				padding: 4px 0 4px;
 			}
-				#sidebar div.brightkite-person-data ul li div a.brightkite-time-link {
+				#sidebar div.brightkite-person-data ul li div a.brightkite-time-link,
+				#sidebar div.brightkite-place-data ul li div a.brightkite-time-link {
 					color: #999;
 					text-decoration: none;
 				}
-					#sidebar div.brightkite-person-data ul li div a.brightkite-time-link:hover {
+					#sidebar div.brightkite-person-data ul li div a.brightkite-time-link:hover,
+					#sidebar div.brightkite-place-data ul li div a.brightkite-time-link:hover {
 						text-decoration: underline;
 					}
 	.clear {
 		float: none;
 		clear: both;
 	}
+	.brightkite-post-creator a {
+		padding: 4px;
+		display: block;
+	}
+		.brightkite-post-creator a > span {
+			float: right;
+		}

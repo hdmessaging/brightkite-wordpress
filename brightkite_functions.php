@@ -54,6 +54,13 @@ require_once('emoji/emoji.php');
 		return strlen($string) > 20 ? substr($string, 0, 8).'&hellip;'.substr($string, -8) : $string;
 	}
 
+	function BK_extract_place_id(&$url) {
+		$matches = array();
+		preg_match('/^https?:\/\/([^\.\/]+\.)?brightkite.com\/places\/([^\/\?\#]+)\/?/', $url, $matches);
+		$id = is_array($matches) && count($matches) > 2 && strlen($matches[2]) > 0 ? $matches[2] : null;
+		unset($matches);
+		return $id;
+	}
 	function BK_create_place_url($place_id) {
 		return BK_HOST.'/places/'.$place_id;
 	}
@@ -61,3 +68,13 @@ require_once('emoji/emoji.php');
 		return BK_HOST.'/objects/'.$object_id;
 	}
 
+	function BK_construct_hierarchy(array &$hierarchy) {
+		$html = array();
+		for ($i = count($hierarchy); $i > 0; --$i) {
+			$place = $hierarchy[$i - 1];
+			if (is_array($place) && array_key_exists('id', $place) && array_key_exists('name', $place)) {
+				$html[] = '<a href="'.BK_create_place_url($place['id']).'">'.$place['name'].'</a>';
+			}
+		}
+		return implode(' &raquo; ', $html);
+	}
